@@ -29,6 +29,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    
     FloatingActionButton add_button;
     ImageView empty_imageview;
     TextView no_data;
