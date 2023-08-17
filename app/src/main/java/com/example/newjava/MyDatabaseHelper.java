@@ -26,6 +26,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -60,15 +61,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     Cursor readAllData() {
-        String query = " SELECT * FROM " + TABLE_NAME;
+        String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         if (db != null) {
-
-            db.rawQuery(query, null);
+            cursor = db.rawQuery(query, null);
         }
         return cursor;
     }
+
 
     void updateData(String row_id, String title, String author, String pages) {
 
